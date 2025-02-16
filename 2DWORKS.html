@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JV's Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css” />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!--  -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+
+    <div id="navb">
+        <a href="home.html" style="text-decoration: none;">
+            <p class="logo-name">J V<span>’s Profile</span></p>
+        </a>
+        <nav>
+
+            <div class="tab">
+                <!-- <a href="aboutme.html" id="home">HOME</a> -->
+                <a href="home.html" id="about">ABOUT ME</a>
+                <a href="artgallery.html" id="gallery">ART GALLERY</a>
+                <a href="commission.html" id="commission">COMMISSION</a>
+            </div>
+
+
+            <div class="link">
+                <a href=""><img src="picture/linkend-black.png" style="background-color: white;" alt=""></a>
+                <a href=""><img src="picture/ig-black.jpg" alt=""></a>
+                <a href=""><img src="picture/yt-black.png" style="width: 40px;" alt=""></a>
+                <a href="index.html"><img src="picture/bs.png" alt=""></a>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- <div id="3">
+        <img src="IllustrationsA/1.png" alt="CYCLIZAR">
+        <img src="IllustrationsA/2.png" alt="grl">
+        <img src="IllustrationsA/3.png" alt="mku">
+        <img src="IllustrationsA/4.png" alt="lcseyes">
+        <img src="IllustrationsA/5.png" alt="spidey prowler">
+        <img src="IllustrationsA/6.png" alt="zaun">
+    </div>  -->
+
+
+    <div style="display: flex; flex-direction: column; margin-top: 100px;">
+        <div class="work">
+            <p>2D works</p>
+        </div>
+
+        <div class="gallery">
+            <div class="item item1"
+                onclick="openPopup('picture/MKU.png', 'image', 'MKU', 'Description of MKU.')">
+                <img src="picture/MKU.png" alt="MKU">
+                <span class="hover-text">MKU</span>
+            </div>
+            <div class="item item2"
+                onclick="openPopup('video/2025-02-16 11-43-55.mp4', 'video', 'cyclizar loop', 'Description of Cyclizar.')">
+                <img src="picture/1.png" alt="Cyclizar">
+                <span class="hover-text">cyclizar loop</span>
+            </div>
+            <div class="item item3"
+                onclick="openPopup('picture/lucius-headshot-eyes.png', 'image', 'Lucius', 'Description of Lucius artwork.')"><img
+                    src="picture/lucius-headshot-eyes.png" alt="Lucius">
+                <span class="hover-text">Lucius</span>
+            </div>
+            <div class="item item4"
+                onclick="openPopup('picture/spidey.png', 'image', 'Spidey', 'Description of Spidey artwork.')"><img
+                    src="picture/spidey.png" alt="Spidey">
+                <span class="hover-text">Spidey</span>
+            </div>
+
+            <div class="item item5"
+                onclick="openPopup('picture/thirds.png', 'image', 'Thirds', 'Description of Thirds artwork.')"><img
+                    src="picture/thirds.png" alt="Thirds">
+                <span class="hover-text">Thirds</span>
+            </div>
+
+            <div class="item item6"
+                onclick="openPopup('picture/WESVECT.png', 'image', 'WESVECT', 'Description of WESVECT artwork.')"><img
+                    src="picture/WESVECT.png" alt="WESVECT">
+                <span class="hover-text">WESVECT</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img id="popup-img" src="" alt="" style="display: none;">
+            <video id="popup-vid" autoplay loop muted style="display: none;"></video>
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+        </div>
+    </div>
+
+
+    <script>
+        ScrollReveal({
+            // reset:true,
+            distance: '100px',
+            duration: 2200,
+            delay: 400
+        });
+
+        ScrollReveal().reveal('.work', { delay: 50, origin: 'top' });
+
+        ScrollReveal().reveal('.item1', { delay: 50, origin: 'right' });
+        ScrollReveal().reveal('.item2', { delay: 50, origin: 'right' });
+        ScrollReveal().reveal('.item3', { delay: 50, origin: 'right' });
+        ScrollReveal().reveal('.item4', { delay: 50, origin: 'left' });
+        ScrollReveal().reveal('.item5', { delay: 50, origin: 'left' });
+        ScrollReveal().reveal('.item6', { delay: 50, origin: 'left' });
+
+
+        function openPopup(mediaSrc, type, title, description) {
+            let img = document.getElementById("popup-img");
+            let video = document.getElementById("popup-vid");
+
+            if (type === "image") {
+                img.src = mediaSrc;
+                img.style.display = "block";
+                video.style.display = "none";
+            } else if (type === "video") {
+                video.src = mediaSrc;
+                video.style.display = "block";
+                img.style.display = "none";
+            }
+
+            document.getElementById("popup-title").textContent = title;
+            document.getElementById("popup-description").textContent = description;
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>
